@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Adicionar" HorizontalAlignment="Left" Margin="73,50,0,0" VerticalAlignment="Top" Height="52" Width="265" Click="Button_Click"/>
+        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="442,0,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>

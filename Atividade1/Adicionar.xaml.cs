@@ -15,19 +15,18 @@ using System.Windows.Shapes;
 namespace Atividade1
 {
     /// <summary>
-    /// Lógica interna para MainWindow.xaml
+    /// Lógica interna para Adicionar.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Adicionar : Window
     {
-        public MainWindow()
+        public Adicionar()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Adicionar a = new Adicionar();
-            a.Show();
+
         }
     }
 }
