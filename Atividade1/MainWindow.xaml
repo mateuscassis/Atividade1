@@ -8,15 +8,18 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Command ="{Binding adicionar}" Content="Adicionar" HorizontalAlignment="Left" Margin="27,356,0,0" VerticalAlignment="Top" Height="52" Width="265" Click="Button_Click"/>
-        <ListView ItemsSource="{Binding usuarios.}" HorizontalAlignment="Left" Width="336" Margin="464,0,0,0">
+        <TextBox HorizontalAlignment="Left" Margin="27,112,0,0" TextWrapping="Wrap" Text="{Binding TextBox_TextChanged_1}" VerticalAlignment="Top" Width="383" Height="23" TextChanged="TextBox_TextChanged_2"/>
+        <TextBox HorizontalAlignment="Left" Margin="27,37,0,0" TextWrapping="Wrap" Text="{Binding TextBox_TextChanged}" VerticalAlignment="Top" Width="383" Height="26" TextChanged="TextBox_TextChanged"/>
+        <ListView ItemsSource="{Binding usuarios }" Margin="439,0,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Nome}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Cpf}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox HorizontalAlignment="Left" Margin="27,112,0,0" TextWrapping="Wrap" Text="{Binding TextBox_TextChanged_1}" VerticalAlignment="Top" Width="383" Height="23" TextChanged="TextBox_TextChanged_2"/>
-        <TextBox HorizontalAlignment="Left" Margin="27,37,0,0" TextWrapping="Wrap" Text="{Binding TextBox_TextChanged}" VerticalAlignment="Top" Width="383" Height="26" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Nome:" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="CPF:" HorizontalAlignment="Left" Margin="27,81,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

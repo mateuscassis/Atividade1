@@ -17,6 +17,7 @@ namespace Atividade1
         public string TextBox_TextChanged { get; set; }
         public int TextBox_TextChanged_1 { get; set; }
 
+
         public MainWindowsVM()
         {
             usuarios = new ObservableCollection<Usuario>();
@@ -24,7 +25,6 @@ namespace Atividade1
             adicionar = new RelayCommand((object obj) => {
                 Usuario usuario = new Usuario(TextBox_TextChanged, TextBox_TextChanged_1);
                 usuarios.Add(usuario);
-                
             });
         }
 
