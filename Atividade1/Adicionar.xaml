@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="Adicionar" Height="450" Width="800">
     <Grid>
-        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="604,367,0,0" VerticalAlignment="Top" Height="38" Width="172"/>
+        <Button Command ="{Binding adicionar}" Content="Confirmar" HorizontalAlignment="Left" Margin="589,353,0,0" VerticalAlignment="Top" Height="38" Width="172" Click="Button_Click"/>
         <TextBox HorizontalAlignment="Left" Margin="139,49,0,0" TextWrapping="Wrap" Text="Ex: Mateus Assis" VerticalAlignment="Top" Width="584" Height="22" TextChanged="TextBox_TextChanged"/>
         <Label Content="Nome:" HorizontalAlignment="Left" Margin="79,45,0,0" VerticalAlignment="Top" Width="60"/>
-        <TextBox HorizontalAlignment="Left" Margin="139,102,0,0" TextWrapping="Wrap" Text="Ex: 789.654.123-2" VerticalAlignment="Top" Width="584" Height="21"/>
+        <TextBox HorizontalAlignment="Left" Margin="139,102,0,0" TextWrapping="Wrap" Text="Ex: 789.654.123-2" VerticalAlignment="Top" Width="584" Height="21" TextChanged="TextBox_TextChanged_1"/>
         <Label Content="CPF:" HorizontalAlignment="Left" Margin="79,100,0,0" VerticalAlignment="Top"/>
 
     </Grid>

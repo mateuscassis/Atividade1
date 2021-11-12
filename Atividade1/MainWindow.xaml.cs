@@ -21,13 +21,29 @@ namespace Atividade1
     {
         public MainWindow()
         {
+            DataContext = new MainWindowsVM();
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Adicionar a = new Adicionar();
-            a.Show();
+            //Adicionar a = new Adicionar();
+            //a.Show();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
