@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Atividade1
 {
-    /// <summary>
-    /// Lógica interna para MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()

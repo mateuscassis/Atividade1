@@ -26,6 +26,7 @@ namespace Atividade1
 
 
         public string Cpf { get { return cpf; } set { cpf = value; } }
-     
+        
+
     }
 }

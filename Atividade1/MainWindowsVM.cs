@@ -18,8 +18,6 @@ namespace Atividade1
         public string TextBox_TextChanged { get; set; }
         public string TextBox_TextChanged_1 { get; set; }
 
-        public ICommand botaoUpdate { get; private set; }
-
         public Usuario usuarioSelecionado { get; set; }
         
         public MainWindowsVM()
@@ -31,10 +29,10 @@ namespace Atividade1
                 usuarios.Add(usuario);
             });
 
-            remover = new RelayCommand((object obj) =>
-            {   
+            remover = new RelayCommand((object obj) => 
+            { 
                 usuarios.Remove(usuarioSelecionado);
-            });
+            }, obj => usuarioSelecionado != null);
 
             abrirUpdate = new RelayCommand((object obj) =>
             {
@@ -45,15 +43,13 @@ namespace Atividade1
                     Update update = new Update();
                     update.DataContext = usuarioSelecionado;
                     update.Show();
-                
+
                 }
                 catch (NullReferenceException)
                 {
                     Console.WriteLine("Usuário não selecionado!");
                 }
-            });
-           
-
+            });          
         }
 
     }

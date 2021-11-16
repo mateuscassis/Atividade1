@@ -19,8 +19,6 @@ namespace Atividade1
     {
         public Update()
         {   
-
-            DataContext = new MainWindowsVM();
             InitializeComponent();
         }
     }
