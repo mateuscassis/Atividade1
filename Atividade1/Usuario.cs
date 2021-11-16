@@ -9,13 +9,13 @@ namespace Atividade1
     public class Usuario
     {
         private string nome;
-        private float cpf;
+        private string cpf;
 
         public Usuario()
         { 
         }
 
-        public Usuario(string nome, float cpf)
+        public Usuario(string nome, string cpf)
         {
             this.nome = nome;
             this.cpf = cpf;
@@ -25,7 +25,7 @@ namespace Atividade1
         public string Nome { get { return nome; } set { nome = value; } }
 
 
-        public float Cpf { get { return cpf; } set { cpf = value; } }
+        public string Cpf { get { return cpf; } set { cpf = value; } }
      
     }
 }

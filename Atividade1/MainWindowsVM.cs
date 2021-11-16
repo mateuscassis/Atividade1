@@ -16,8 +16,9 @@ namespace Atividade1
         public ICommand remover { get; private set; }
         public ObservableCollection<Usuario> usuarios { get; set; }
         public string TextBox_TextChanged { get; set; }
-        public float TextBox_TextChanged_1 { get; set; }
- 
+        public string TextBox_TextChanged_1 { get; set; }
+
+        public ICommand botaoUpdate { get; private set; }
 
         public Usuario usuarioSelecionado { get; set; }
         
@@ -37,10 +38,22 @@ namespace Atividade1
 
             abrirUpdate = new RelayCommand((object obj) =>
             {
-                Update update = new Update();
-                update.DataContext = usuarioSelecionado;
-                update.Show();
+                try
+                {
+                    if (usuarioSelecionado == null)
+                        throw new NullReferenceException();
+                    Update update = new Update();
+                    update.DataContext = usuarioSelecionado;
+                    update.Show();
+                
+                }
+                catch (NullReferenceException)
+                {
+                    Console.WriteLine("Usuário não selecionado!");
+                }
             });
+           
+
         }
 
     }

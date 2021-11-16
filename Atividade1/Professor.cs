@@ -8,17 +8,17 @@ namespace Atividade1
 {
     public class Professor : Usuario
     {
-        int institucionalId;
-        public Professor(string nome, int cpf, int institucionalId) : base(nome, cpf)
+        string institucionalId;
+        public Professor(string nome, string cpf, string institucionalId) : base(nome, cpf)
         {
             this.institucionalId = institucionalId;
         }
 
-        public void setInstitucionalId(int InstitucionalId) { 
+        public void setInstitucionalId(string InstitucionalId) { 
             this.institucionalId = InstitucionalId;
         }
 
-        public int getInstitucionalId() { 
+        public string getInstitucionalId() { 
             return this.institucionalId;
         }
     }
