@@ -12,12 +12,15 @@ namespace Atividade1
     public class MainWindowsVM
     {
         public ICommand adicionar{get; private set;}
-
+        public ICommand abrirUpdate { get; private set; }
+        public ICommand remover { get; private set; }
         public ObservableCollection<Usuario> usuarios { get; set; }
         public string TextBox_TextChanged { get; set; }
-        public int TextBox_TextChanged_1 { get; set; }
+        public float TextBox_TextChanged_1 { get; set; }
+ 
 
-
+        public Usuario usuarioSelecionado { get; set; }
+        
         public MainWindowsVM()
         {
             usuarios = new ObservableCollection<Usuario>();
@@ -25,6 +28,18 @@ namespace Atividade1
             adicionar = new RelayCommand((object obj) => {
                 Usuario usuario = new Usuario(TextBox_TextChanged, TextBox_TextChanged_1);
                 usuarios.Add(usuario);
+            });
+
+            remover = new RelayCommand((object obj) =>
+            {   
+                usuarios.Remove(usuarioSelecionado);
+            });
+
+            abrirUpdate = new RelayCommand((object obj) =>
+            {
+                Update update = new Update();
+                update.DataContext = usuarioSelecionado;
+                update.Show();
             });
         }
 

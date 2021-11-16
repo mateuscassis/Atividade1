@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Command ="{Binding adicionar}" Content="Adicionar" HorizontalAlignment="Left" Margin="27,356,0,0" VerticalAlignment="Top" Height="52" Width="265" Click="Button_Click"/>
+        <Button Command ="{Binding adicionar}" Content="Adicionar" HorizontalAlignment="Left" Margin="27,356,0,0" VerticalAlignment="Top" Height="52" Width="101" Click="Button_Click"/>
         <TextBox HorizontalAlignment="Left" Margin="27,112,0,0" TextWrapping="Wrap" Text="{Binding TextBox_TextChanged_1}" VerticalAlignment="Top" Width="383" Height="23" TextChanged="TextBox_TextChanged_2"/>
         <TextBox HorizontalAlignment="Left" Margin="27,37,0,0" TextWrapping="Wrap" Text="{Binding TextBox_TextChanged}" VerticalAlignment="Top" Width="383" Height="26" TextChanged="TextBox_TextChanged"/>
-        <ListView ItemsSource="{Binding usuarios }" Margin="439,0,0,0">
+        <ListView ItemsSource="{Binding usuarios }" Margin="439,0,0,0" SelectedItem="{Binding usuarioSelecionado }">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Nome}"/>
@@ -20,6 +20,8 @@
         </ListView>
         <Label Content="Nome:" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top"/>
         <Label Content="CPF:" HorizontalAlignment="Left" Margin="27,81,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding abrirUpdate}" Content="Update" HorizontalAlignment="Left" Margin="168,356,0,0" VerticalAlignment="Top" Width="101" Height="52"/>
+        <Button Command="{Binding remover}" Content="Deletar" HorizontalAlignment="Left" Margin="314,356,0,0" VerticalAlignment="Top" Height="52" Width="96"/>
 
     </Grid>
 </Window>

@@ -9,7 +9,7 @@ namespace Atividade1
     public class Aluno : Usuario
     {
         int matricula;
-        public Aluno(string nome, int cpf, int matricula) : base(nome, cpf)
+        public Aluno(string nome, float cpf, int matricula) : base(nome, cpf)
         {
             this.matricula = matricula;
         }
