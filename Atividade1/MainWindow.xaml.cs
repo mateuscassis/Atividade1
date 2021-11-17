@@ -24,8 +24,7 @@ namespace Atividade1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Adicionar a = new Adicionar();
-            //a.Show();
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

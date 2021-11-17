@@ -18,7 +18,7 @@ namespace Atividade1
     public partial class Update : Window
     {
         public Update()
-        {   
+        {
             InitializeComponent();
         }
     }

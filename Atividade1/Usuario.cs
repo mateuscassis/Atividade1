@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Windows.Input;
 
 namespace Atividade1
 {
@@ -10,15 +10,18 @@ namespace Atividade1
     {
         private string nome;
         private string cpf;
+        public string cpfUpdate  { get; set; }
+        public string nomeUpdate { get; set; }
+        public ICommand botaoUpdate { get;  set; }
 
-        public Usuario()
-        { 
-        }
+        public ICommand botaoCancelar { get;  set; }
+
 
         public Usuario(string nome, string cpf)
         {
             this.nome = nome;
             this.cpf = cpf;
+
         }
 
 
@@ -27,6 +30,6 @@ namespace Atividade1
 
         public string Cpf { get { return cpf; } set { cpf = value; } }
         
-
+        
     }
 }

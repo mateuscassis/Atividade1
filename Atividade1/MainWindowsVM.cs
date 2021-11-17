@@ -14,10 +14,10 @@ namespace Atividade1
         public ICommand adicionar{get; private set;}
         public ICommand abrirUpdate { get; private set; }
         public ICommand remover { get; private set; }
+
         public ObservableCollection<Usuario> usuarios { get; set; }
         public string TextBox_TextChanged { get; set; }
         public string TextBox_TextChanged_1 { get; set; }
-
         public Usuario usuarioSelecionado { get; set; }
         
         public MainWindowsVM()
@@ -32,7 +32,7 @@ namespace Atividade1
             remover = new RelayCommand((object obj) => 
             { 
                 usuarios.Remove(usuarioSelecionado);
-            }, obj => usuarioSelecionado != null);
+            }, canObj => usuarioSelecionado != null);
 
             abrirUpdate = new RelayCommand((object obj) =>
             {
@@ -40,16 +40,22 @@ namespace Atividade1
                 {
                     if (usuarioSelecionado == null)
                         throw new NullReferenceException();
+
                     Update update = new Update();
                     update.DataContext = usuarioSelecionado;
+                    usuarioSelecionado.botaoUpdate = new RelayCommand((object param) =>
+                    {
+                        update.Close();       
+                    });
                     update.Show();
-
+                    
                 }
                 catch (NullReferenceException)
                 {
                     Console.WriteLine("Usuário não selecionado!");
                 }
-            });          
+            });  
+            
         }
 
     }
