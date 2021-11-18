@@ -11,6 +11,7 @@ namespace Atividade1
 {
     public class MainWindowsVM
     {
+
         public ICommand adicionar{get; private set;}
         public ICommand abrirUpdate { get; private set; }
         public ICommand remover { get; private set; }
@@ -19,6 +20,8 @@ namespace Atividade1
         public string TextBox_TextChanged { get; set; }
         public string TextBox_TextChanged_1 { get; set; }
         public Usuario usuarioSelecionado { get; set; }
+
+
         
         public MainWindowsVM()
         {
@@ -26,6 +29,7 @@ namespace Atividade1
 
             adicionar = new RelayCommand((object obj) => {
                 Usuario usuario = new Usuario(TextBox_TextChanged, TextBox_TextChanged_1);
+
                 usuarios.Add(usuario);
             });
 
@@ -45,8 +49,9 @@ namespace Atividade1
                     update.DataContext = usuarioSelecionado;
                     usuarioSelecionado.botaoUpdate = new RelayCommand((object param) =>
                     {
-                        update.Close();       
+                            update.Close();     
                     });
+
                     update.Show();
                     
                 }

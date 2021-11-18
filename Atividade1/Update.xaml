@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Update" Height="287" Width="341">
     <Grid Margin="0,0,0,10">
-        <Button Command ="{Binding botaoUpdate}" Content="Ok" HorizontalAlignment="Center" Margin="0,179,0,0" VerticalAlignment="Top" Height="44" Width="229"/>
+        <Button Command ="{Binding botaoUpdate}" Content="Ok" HorizontalAlignment="Center" Margin="0,179,0,0" VerticalAlignment="Top" Height="44" Width="229" Click="Button_Click"/>
         <Label Content="Nome:" HorizontalAlignment="Left" Margin="31,25,0,0" VerticalAlignment="Top"/>
         <Label Content="CPF:" HorizontalAlignment="Left" Margin="31,87,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,0.618"/>
         <TextBox HorizontalAlignment="Left" Margin="81,29,0,0" TextWrapping="Wrap" Text="{Binding Nome}" VerticalAlignment="Top" Width="204"/>
