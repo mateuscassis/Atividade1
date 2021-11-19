@@ -12,7 +12,7 @@ namespace Atividade1
         SqlConnection con = new SqlConnection();
 
         public Conexao(){
-            con ConectionString = "Data Source=PC-KROCHS\SQLEXPRESS;Initial Catalog=Atividade1;Integrated Security=True";
+            con.ConnectionString = @"Data Source=PC-KROCHS\SQLEXPRESS;Initial Catalog=Atividade1;Integrated Security=True";
          }
 
         public SqlConnection conectar() {

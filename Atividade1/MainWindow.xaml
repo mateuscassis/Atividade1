@@ -10,9 +10,10 @@
         <Button Command ="{Binding adicionar}" Content="Adicionar" HorizontalAlignment="Left" Margin="27,356,0,0" VerticalAlignment="Top" Height="52" Width="101" Click="Button_Click"/>
         <TextBox HorizontalAlignment="Left" Margin="27,112,0,0" TextWrapping="Wrap" Text="{Binding TextBox_TextChanged_1}" VerticalAlignment="Top" Width="383" Height="23" TextChanged="TextBox_TextChanged_2"/>
         <TextBox HorizontalAlignment="Left" Margin="27,37,0,0" TextWrapping="Wrap" Text="{Binding TextBox_TextChanged}" VerticalAlignment="Top" Width="383" Height="26" TextChanged="TextBox_TextChanged"/>
-        <ListView ItemsSource="{Binding usuarios }" Margin="439,0,0,0" SelectedItem="{Binding usuarioSelecionado }">
+        <ListView ItemsSource="{Binding usuarios}" Margin="439,0,0,0" SelectedItem="{Binding usuarioSelecionado }">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Nome}"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Cpf}"/>
                 </GridView>

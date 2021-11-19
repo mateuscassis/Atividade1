@@ -8,6 +8,7 @@ namespace Atividade1
 {
     public class Usuario
     {
+        private static float id = 0;
         private string nome;
         private string cpf;
 
@@ -17,9 +18,13 @@ namespace Atividade1
         {   
             this.nome = nome;
             this.cpf = cpf;
-
+            id += 1;
         }
 
+        public float Id
+        {
+            get { return id; }
+        }
 
         public string Nome { get { return nome; } set { nome = value; } }
 

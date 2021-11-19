@@ -29,13 +29,14 @@ namespace Atividade1
 
             adicionar = new RelayCommand((object obj) => {
                 Usuario usuario = new Usuario(TextBox_TextChanged, TextBox_TextChanged_1);
-
+                CadastroUsuarioBd cad = new CadastroUsuarioBd(usuario);
                 usuarios.Add(usuario);
             });
 
             remover = new RelayCommand((object obj) => 
-            { 
-                usuarios.Remove(usuarioSelecionado);
+            {
+                DeletarUsuarioBd del = new DeletarUsuarioBd(usuarioSelecionado);
+                usuarios.Remove(usuarioSelecionado);               
             }, canObj => usuarioSelecionado != null);
 
             abrirUpdate = new RelayCommand((object obj) =>
@@ -49,7 +50,8 @@ namespace Atividade1
                     update.DataContext = usuarioSelecionado;
                     usuarioSelecionado.botaoUpdate = new RelayCommand((object param) =>
                     {
-                            update.Close();     
+                        UpdateUsuarioBd up = new UpdateUsuarioBd(usuarioSelecionado);
+                        update.Close();     
                     });
 
                     update.Show();
