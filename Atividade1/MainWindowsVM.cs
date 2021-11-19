@@ -21,22 +21,26 @@ namespace Atividade1
         public string TextBox_TextChanged_1 { get; set; }
         public Usuario usuarioSelecionado { get; set; }
 
-
+        private Conexao cad;
         
         public MainWindowsVM()
         {
+            cad = new Conexao();
             usuarios = new ObservableCollection<Usuario>();
+            meusComandos();                 
+        }
 
+        private void meusComandos() {
             adicionar = new RelayCommand((object obj) => {
                 Usuario usuario = new Usuario(TextBox_TextChanged, TextBox_TextChanged_1);
-                CadastroUsuarioBd cad = new CadastroUsuarioBd(usuario);
+                cad.cadastrarUsuario(usuario);
                 usuarios.Add(usuario);
             });
 
-            remover = new RelayCommand((object obj) => 
+            remover = new RelayCommand((object obj) =>
             {
-                DeletarUsuarioBd del = new DeletarUsuarioBd(usuarioSelecionado);
-                usuarios.Remove(usuarioSelecionado);               
+                cad.deletarUsuario(usuarioSelecionado);
+                usuarios.Remove(usuarioSelecionado);
             }, canObj => usuarioSelecionado != null);
 
             abrirUpdate = new RelayCommand((object obj) =>
@@ -50,20 +54,18 @@ namespace Atividade1
                     update.DataContext = usuarioSelecionado;
                     usuarioSelecionado.botaoUpdate = new RelayCommand((object param) =>
                     {
-                        UpdateUsuarioBd up = new UpdateUsuarioBd(usuarioSelecionado);
-                        update.Close();     
+                        cad.updateUsuario(usuarioSelecionado);
+                        update.Close();
                     });
 
                     update.Show();
-                    
+
                 }
                 catch (NullReferenceException)
                 {
                     Console.WriteLine("Usuário não selecionado!");
                 }
-            });  
-            
+            });
         }
-
     }
 }

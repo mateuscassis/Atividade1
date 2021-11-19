@@ -56,17 +56,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Aluno.cs" />
-    <Compile Include="BucasUsuariosBd.cs" />
-    <Compile Include="CadastroUsuarioBd.cs" />
     <Compile Include="Conexao.cs" />
-    <Compile Include="DeletarUsuarioBd.cs" />
     <Compile Include="MainWindowsVM.cs" />
     <Compile Include="Professor.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Update.xaml.cs">
       <DependentUpon>Update.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UpdateUsuarioBd.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
