@@ -16,18 +16,17 @@ namespace Atividade1
         public ICommand adicionar{get; private set;}
         public ICommand abrirUpdate { get; private set; }
         public ICommand remover { get; private set; }
-
         public ObservableCollection<Usuario> usuarios { get; set; }
         public string TextBox_TextChanged { get; set; }
         public string TextBox_TextChanged_1 { get; set; }
         public Usuario usuarioSelecionado { get; set; }
 
-        private ConexaoBd cad;
-        
+        private DAO<Usuario> cad;
+ 
         public MainWindowsVM()
         {
             cad = new ConexaoBd();
-            usuarios = new ObservableCollection<Usuario>();
+            usuarios = new ObservableCollection<Usuario>(cad.viewUsuario());
             meusComandos();                 
         }
 

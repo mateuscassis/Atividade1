@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Atividade1
 {
-    internal class ConexaoBd
+    internal class ConexaoBd: DAO<Usuario>
     {
         private SqlConnection con;
         private SqlCommand cmd;
@@ -56,20 +56,27 @@ namespace Atividade1
             }
         }
 
-        public void viewUsuario()
+        public List<Usuario> viewUsuario()
         {
-            try
+            List<Usuario> usuarios = new List<Usuario>();
+            cmd.CommandText = "select * from Usuarios";
+            conectar();
+            SqlDataReader rdr;
+            rdr = cmd.ExecuteReader();
+            while (rdr.Read())
             {
-                cmd.CommandText = "select nome, cpf from Usuarios";
-                conectar();
-                SqlDataReader dr = cmd.ExecuteReader();
-                desconectar();
+                usuarios.Add(new Usuario()
+                {
+                    Id = rdr.GetInt32(0),
+                    Nome = rdr[1].ToString(),
+                    Cpf = rdr[2].ToString()
+                });
             }
-            catch (SqlException)
-            {
-                Console.WriteLine("Erro de banco");
-            }
+            rdr.Close();
+            desconectar();
+            return usuarios;
         }
+           
 
         public void updateUsuario(Usuario usuario)
         {

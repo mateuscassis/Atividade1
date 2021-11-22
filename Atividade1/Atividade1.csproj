@@ -57,6 +57,8 @@
     </ApplicationDefinition>
     <Compile Include="Aluno.cs" />
     <Compile Include="ConexaoBd.cs" />
+    <Compile Include="ConexaoBD2.cs" />
+    <Compile Include="DAO.cs" />
     <Compile Include="MainWindowsVM.cs" />
     <Compile Include="Professor.cs" />
     <Compile Include="RelayCommand.cs" />

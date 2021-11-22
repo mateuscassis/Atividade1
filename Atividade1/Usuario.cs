@@ -14,6 +14,8 @@ namespace Atividade1
 
         public ICommand botaoUpdate { get;  set; }
 
+        public Usuario() { }
+
         public Usuario(string nome, string cpf)
         {   
             this.nome = nome;
@@ -24,6 +26,7 @@ namespace Atividade1
         public float Id
         {
             get { return id; }
+            set { id = value; }
         }
 
         public string Nome { get { return nome; } set { nome = value; } }
