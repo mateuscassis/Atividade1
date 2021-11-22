@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 
 
@@ -21,20 +22,21 @@ namespace Atividade1
         public string TextBox_TextChanged_1 { get; set; }
         public Usuario usuarioSelecionado { get; set; }
 
-        private Conexao cad;
+        private ConexaoBd cad;
         
         public MainWindowsVM()
         {
-            cad = new Conexao();
+            cad = new ConexaoBd();
             usuarios = new ObservableCollection<Usuario>();
             meusComandos();                 
         }
 
         private void meusComandos() {
             adicionar = new RelayCommand((object obj) => {
-                Usuario usuario = new Usuario(TextBox_TextChanged, TextBox_TextChanged_1);
-                cad.cadastrarUsuario(usuario);
-                usuarios.Add(usuario);
+
+                    Usuario usuario = new Usuario(TextBox_TextChanged, TextBox_TextChanged_1);
+                    cad.cadastrarUsuario(usuario);
+                    usuarios.Add(usuario);
             });
 
             remover = new RelayCommand((object obj) =>
@@ -49,7 +51,6 @@ namespace Atividade1
                 {
                     if (usuarioSelecionado == null)
                         throw new NullReferenceException();
-
                     Update update = new Update();
                     update.DataContext = usuarioSelecionado;
                     usuarioSelecionado.botaoUpdate = new RelayCommand((object param) =>
@@ -63,7 +64,7 @@ namespace Atividade1
                 }
                 catch (NullReferenceException)
                 {
-                    Console.WriteLine("Usuário não selecionado!");
+                    MessageBox.Show("Usuário não selecionado");
                 }
             });
         }

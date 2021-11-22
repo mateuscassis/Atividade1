@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Aluno.cs" />
-    <Compile Include="Conexao.cs" />
+    <Compile Include="ConexaoBd.cs" />
     <Compile Include="MainWindowsVM.cs" />
     <Compile Include="Professor.cs" />
     <Compile Include="RelayCommand.cs" />
