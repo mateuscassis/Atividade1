@@ -25,7 +25,7 @@ namespace Atividade1
  
         public MainWindowsVM()
         {
-            cad = new ConexaoBd();
+            cad = new ConexaoMySql();
             usuarios = new ObservableCollection<Usuario>(cad.viewUsuario());
             meusComandos();                 
         }

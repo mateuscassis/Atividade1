@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Atividade1
 {
     internal interface DAO<T>
-    {
+    {     
         void cadastrarUsuario(T t);
 
         void updateUsuario(T t);
