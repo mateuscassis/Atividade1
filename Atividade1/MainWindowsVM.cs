@@ -32,10 +32,22 @@ namespace Atividade1
 
         private void meusComandos() {
             adicionar = new RelayCommand((object obj) => {
-
+                int contador = 0;
+                foreach (Usuario i in usuarios)
+                {     
+                    if (i.Cpf == TextBox_TextChanged_1) {
+                      contador++;
+                    }
+                }
+                if (contador == 0)
+                {
                     Usuario usuario = new Usuario(TextBox_TextChanged, TextBox_TextChanged_1);
                     cad.cadastrarUsuario(usuario);
                     usuarios.Add(usuario);
+                }
+                else {
+                    MessageBox.Show("Cpf já cadastrado!");
+                }
             });
 
             remover = new RelayCommand((object obj) =>
