@@ -17,7 +17,9 @@ namespace Atividade1
         public Usuario() { }
 
         public Usuario(string nome, string cpf)
-        {   
+        {
+            if (string.IsNullOrWhiteSpace(nome))
+               throw new Exception();
             this.nome = nome;
             this.cpf = cpf;
             id += 1;

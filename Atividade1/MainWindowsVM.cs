@@ -21,11 +21,11 @@ namespace Atividade1
         public string TextBox_TextChanged_1 { get; set; }
         public Usuario usuarioSelecionado { get; set; }
 
-        private DAO<Usuario> cad;
+        private DAO cad;
  
         public MainWindowsVM()
         {
-            cad = new ConexaoMySql();
+            cad = new ConexaoSqlServer();
             usuarios = new ObservableCollection<Usuario>(cad.viewUsuario());
             meusComandos();                 
         }

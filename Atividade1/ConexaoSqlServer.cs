@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Atividade1
 {
-    internal class ConexaoBd: DAO<Usuario>
+    internal class ConexaoSqlServer: DAO
     {
         private SqlConnection con;
         private SqlCommand cmd;
 
-        public ConexaoBd()
+        public ConexaoSqlServer()
         {
             con = new SqlConnection();
             con.ConnectionString = @"Data Source=PC-KROCHS\SQLEXPRESS;Initial Catalog=Atividade1;Integrated Security=True";
