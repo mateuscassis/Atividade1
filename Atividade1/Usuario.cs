@@ -99,7 +99,11 @@ namespace Atividade1
 
             return true;
         }
-        
+
+        public bool validaNome(string nome) {
+            bool resultado = nome.Replace(" ","").All(char.IsLetter);
+            return resultado;
+        }
         
     }
 }

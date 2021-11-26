@@ -60,6 +60,14 @@ namespace Testes1
             Assert.Equal(valorEsperado,usuario.validaCpf(cpf));
         }
 
+        [Fact]
+        public void validaNome() {
+            string nome = "mateus 123 assis";
+            string cpf = "419.716.548-09";
+            Usuario usuario = new Usuario(nome, cpf);
 
+            bool valorEsperado = false;
+            Assert.Equal(valorEsperado, usuario.validaNome(nome));
+        }
     }
 }

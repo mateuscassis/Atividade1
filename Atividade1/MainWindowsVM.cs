@@ -33,15 +33,15 @@ namespace Atividade1
         private void meusComandos() {
             
             adicionar = new RelayCommand((object obj) => {
-                Usuario usuario = new Usuario(TextBox_TextChanged, TextBox_TextChanged_1);
-                if (usuario.validaCpf(usuario.Cpf) == true)
+                Usuario usuario = new Usuario(TextBox_TextChanged, TextBox_TextChanged_1);               
+                if (usuario.validaCpf(usuario.Cpf)&&usuario.validaNome(usuario.Nome) == true)
                 {
                     cad.cadastrarUsuario(usuario);
                     usuarios.Add(usuario);
                 }
                 else
                 {
-                    MessageBox.Show("Cpf Invalido");
+                    MessageBox.Show("Cpf ou Nome Invalido");
                 }
 
             });

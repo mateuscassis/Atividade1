@@ -14,12 +14,6 @@ namespace Atividade1
             this.institucionalId = institucionalId;
         }
 
-        public void setInstitucionalId(string InstitucionalId) { 
-            this.institucionalId = InstitucionalId;
-        }
-
-        public string getInstitucionalId() { 
-            return this.institucionalId;
-        }
+        public int isntitucionalId { get { return isntitucionalId; } set { isntitucionalId = value; } }
     }
 }

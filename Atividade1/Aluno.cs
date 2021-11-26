@@ -14,16 +14,8 @@ namespace Atividade1
             this.matricula = matricula;
         }
 
-        public int getMatricula()
-        {
-            return this.matricula;
+        public int Matricula{ get { return matricula; } set { matricula = value; } }
 
-        }
 
-        public void setMatricula(int matricula)
-        {
-            this.matricula = matricula;
-
-        }
     }
 }
