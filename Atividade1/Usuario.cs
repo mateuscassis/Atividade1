@@ -14,7 +14,9 @@ namespace Atividade1
 
         public ICommand botaoUpdate { get;  set; }
 
-        public Usuario() { }
+        public Usuario() {
+            id += 1;
+        }
 
         public Usuario(string nome, string cpf)
         {

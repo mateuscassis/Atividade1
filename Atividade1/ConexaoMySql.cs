@@ -25,20 +25,22 @@ namespace Atividade1
         public void conectar()
         {
             if (con.State == System.Data.ConnectionState.Closed)
-                con.Open();
+                try { con.Open(); }
+                catch (Exception e) {  }
         }
 
         public void desconectar()
         {
             if (con.State == System.Data.ConnectionState.Open)
-                con.Close();
+                try { con.Close(); }
+                catch (Exception) { }
         }
+
         public void cadastrarUsuario(Usuario usuario)
         {
-            try
-            {
-                conectar();
-                cmd.CommandText = "insert into Usuario(id, nome, cpf) values (@id, @nome, @cpf)";
+            try { 
+                conectar(); 
+                cmd.CommandText = "insert into usuario(id, nome, cpf) values (@id, @nome, @cpf)";
                 cmd.Parameters.AddWithValue("@id", usuario.Id);
                 cmd.Parameters.AddWithValue("@nome", usuario.Nome);
                 cmd.Parameters.AddWithValue("@cpf", usuario.Cpf);
@@ -46,10 +48,11 @@ namespace Atividade1
                 cmd.Parameters.Clear();
                 desconectar();
             }
-            catch (Exception)
+            catch(Exception)
             {
-                Console.WriteLine("Erro de banco");
+                throw;
             }
+
 
         }
 
@@ -57,7 +60,7 @@ namespace Atividade1
         {
             try
             {
-                cmd.CommandText = "delete from Usuario WHERE cpf = @cpfDelete";
+                cmd.CommandText = "delete from usuario WHERE cpf = @cpfDelete";
                 cmd.Parameters.AddWithValue("@cpfDelete", usuario.Cpf);
                 conectar();
                 rd = cmd.ExecuteReader();
@@ -74,7 +77,7 @@ namespace Atividade1
         {
             try
             {
-                cmd.CommandText = "UPDATE Usuario SET nome = @nomeUpdate, cpf = @cpfUpdate WHERE id = @idUpdate";
+                cmd.CommandText = "UPDATE usuario SET nome = @nomeUpdate, cpf = @cpfUpdate WHERE id = @idUpdate";
                 cmd.Parameters.AddWithValue("@nomeUpdate", usuario.Nome);
                 cmd.Parameters.AddWithValue("@cpfUpdate", usuario.Cpf);
                 cmd.Parameters.AddWithValue("@idUpdate", usuario.Id);
@@ -92,7 +95,7 @@ namespace Atividade1
         public List<Usuario> viewUsuario()
         {
             List<Usuario> usuarios = new List<Usuario>();
-            cmd.CommandText = "select * from Usuario";
+            cmd.CommandText = "select * from usuario";
             conectar();
             rd = cmd.ExecuteReader();
             while (rd.Read())

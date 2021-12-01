@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Atividade1
 {
-    internal class ConexaoSqlServer: DAO
+    public class ConexaoSqlServer: DAO
     {
         private SqlConnection con;
         private SqlCommand cmd;
@@ -100,7 +100,8 @@ namespace Atividade1
         public void conectar()
         {
             if (con.State == System.Data.ConnectionState.Closed)
-                con.Open();
+                try { con.Open(); }
+                catch (Exception e) { }
         }
 
         public void desconectar()

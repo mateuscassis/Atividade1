@@ -1,4 +1,5 @@
 ﻿using Atividade1;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace Testes1
 
         [Fact]
         public void TestaNomeVazio() {
-            
+
             string nome = "";
             string cpf = "41971654809";
             Usuario usuario2;
@@ -35,7 +36,7 @@ namespace Testes1
             var execaoEsperada = "Nome nao pode ser vazio";
             Assert.Equal(execaoEsperada, execaoObtida.Message);
         }
-        
+
         [Fact]
         public void TestaCpfVazio()
         {
@@ -54,10 +55,10 @@ namespace Testes1
 
             string nome = "mateus cuel asis";
             string cpf = "777.777.777-77";
-            Usuario usuario = new Usuario(nome,cpf);
+            Usuario usuario = new Usuario(nome, cpf);
 
             bool valorEsperado = false;
-            Assert.Equal(valorEsperado,usuario.validaCpf(cpf));
+            Assert.Equal(valorEsperado, usuario.validaCpf(cpf));
         }
 
         [Fact]
@@ -68,6 +69,14 @@ namespace Testes1
 
             bool valorEsperado = false;
             Assert.Equal(valorEsperado, usuario.validaNome(nome));
+        }
+
+        [Fact]
+        public void testaCriarUsuario() {
+            Usuario usuario = new Usuario();
+            MainWindowsVM mvm = new MainWindowsVM();
+
+            mvm.adicionar.Execute(this);
         }
     }
 }

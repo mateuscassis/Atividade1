@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -23,6 +24,8 @@ namespace Atividade1
 
         private DAO cad;
  
+        
+
         public MainWindowsVM()
         {
             cad = new ConexaoSqlServer();
@@ -36,8 +39,15 @@ namespace Atividade1
                 Usuario usuario = new Usuario(TextBox_TextChanged, TextBox_TextChanged_1);               
                 if (usuario.validaCpf(usuario.Cpf)&&usuario.validaNome(usuario.Nome) == true)
                 {
-                    cad.cadastrarUsuario(usuario);
-                    usuarios.Add(usuario);
+                    try
+                    {
+
+                        cad.cadastrarUsuario(usuario);
+                        usuarios.Add(usuario);
+                    }
+                    catch (Exception e) {
+                        MessageBox.Show(e.Message);                        
+                    }
                 }
                 else
                 {
